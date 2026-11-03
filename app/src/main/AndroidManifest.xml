@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Normal install-time permissions for Wallpaper application and haptic feedback -->
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- Package visibility declaration for Cyber Launcher and Icon Studio to discover launchable apps safely -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication">
+
+        <!-- Main Personalization Suite Activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.MyApplication">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Optional Custom Android Home Screen Launcher (CYBER LAUNCHER) -->
+        <activity
+            android:name=".launcher.CyberLauncherActivity"
+            android:exported="true"
+            android:label="@string/launcher_label"
+            android:launchMode="singleTask"
+            android:stateNotNeeded="true"
+            android:theme="@style/Theme.MyApplication">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- Android AppWidget Configuration Activity -->
+        <activity
+            android:name=".widgets.CyberWidgetConfigActivity"
+            android:exported="true"
+            android:label="@string/widget_multi_label"
+            android:theme="@style/Theme.MyApplication">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <!-- Real Android Home Screen Widget Providers -->
+        <receiver
+            android:name=".widgets.CyberClockWidgetProvider"
+            android:exported="true"
+            android:label="@string/widget_clock_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/cyber_clock_widget_info" />
+        </receiver>
+
+        <receiver
+            android:name=".widgets.CyberBatteryWidgetProvider"
+            android:exported="true"
+            android:label="@string/widget_battery_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/cyber_battery_widget_info" />
+        </receiver>
+
+        <receiver
+            android:name=".widgets.CyberMultiWidgetProvider"
+            android:exported="true"
+            android:label="@string/widget_multi_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/cyber_multi_widget_info" />
+        </receiver>
+
+        <!-- Opt-In Privacy-Safe Notification Listener Service for Notification Studio -->
+        <service
+            android:name=".widgets.CyberNotificationListenerService"
+            android:exported="true"
+            android:label="@string/notification_listener_label"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>

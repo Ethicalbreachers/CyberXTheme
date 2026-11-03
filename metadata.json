@@ -1,0 +1,6 @@
+{
+  "name": "Cyber Theme X",
+  "description": "Complete Android personalization ecosystem with custom themes, real home screen widgets, custom launcher, icon studio, wallpaper studio, and control center for Vivo T2x 5G and Android 15.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

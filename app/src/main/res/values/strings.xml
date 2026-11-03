@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Cyber Theme X</string>
+    <string name="launcher_label">Cyber Launcher</string>
+    <string name="widget_clock_label">Cyber Clock Widget</string>
+    <string name="widget_clock_desc">Customizable Neon, Analog, Digital, and Glass clock widgets from Cyber Theme X.</string>
+    <string name="widget_battery_label">Cyber Battery Widget</string>
+    <string name="widget_battery_desc">Live battery ring, charging telemetry, and device power widgets.</string>
+    <string name="widget_multi_label">Cyber Studio Widget</string>
+    <string name="widget_multi_desc">All-in-one Calendar, Weather, Music, System Stats, and Custom Notes widget.</string>
+    <string name="notification_listener_label">Cyber Theme X Notification Preview</string>
+    <string name="content_desc_preview">Interactive theme preview</string>
+</resources>
